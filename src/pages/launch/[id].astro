@@ -1,0 +1,51 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import {getLauncheById, getLatestLaunches} from '../../services/spacex'
+
+const {id} = Astro.params
+
+//console.log({id})
+
+import {type Doc} from "../../types/api"
+
+// if (!id){ //solo para el servidor 
+//   Astro.redirect("/")
+// }
+// const { data } = await getLauncheById({id})
+let launch: Doc | null = null
+if (id){
+  launch = await getLauncheById({id}) 
+}
+
+//console.log(launch)
+
+export async function  getStaticPaths() {
+  // llamar a una API externa para saber todas las ids que debes generar.
+  const launches = await getLatestLaunches()
+
+  return launches.map(launch => ({
+    params: {id: launch.id},
+  }))
+
+
+  // return [
+  //   {params: {id: '5eb87cd9ffd86e000604b32a'}},
+  //   {params: {id: '5eb87cdaffd86e000604b32b'}}
+    
+  // ];
+}
+
+---
+
+
+<Layout title=`Lanzamiento ${id}`>
+  <article>
+    <picture class="flex justify-center p-4">
+      <img class="mb-5 rounded-lg" src={launch?.links?.patch.small} alt={launch?.name}>
+    </picture>
+
+    <h2 class="text-4xl text-white font-bold">Launch # {launch?.flight_number}</h2>
+    <p class="text-lg">{launch?.details}</p>
+    {launch != null  ? launch?.id  : "..."}
+  </article>
+</Layout>

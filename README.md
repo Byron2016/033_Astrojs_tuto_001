@@ -61,6 +61,10 @@
 
   - [Simple Badges](https://badges.pages.dev/)
 
+- Icons
+
+  - [Tabler Icons](https://tabler.io/icons)
+
 [⏪(Back to top)](#table-of-contents)
 
 # Steps

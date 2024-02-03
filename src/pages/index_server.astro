@@ -1,16 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Launches from '../components/Launches.astro';
+import LaunchesServer from '../components/LaunchesServer.astro';
 ---
 
 <Layout title="Welcome to Astro.">
-	<main class="bg-red-900 rounded">
-		<Launches></Launches>
+	<main class="bg-green-900 rounded">
+		<LaunchesServer></LaunchesServer>
 	</main>
 </Layout>
 
 <style>
-	main {
+main {
 		margin: auto;
 		padding: 1rem;
 		width: 800px;
@@ -19,4 +19,6 @@ import Launches from '../components/Launches.astro';
 		font-size: 20px;
 		line-height: 1.6;
 	}
+
+
 </style>
