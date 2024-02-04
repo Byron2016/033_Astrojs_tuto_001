@@ -64,6 +64,10 @@
 - Icons
 
   - [Tabler Icons](https://tabler.io/icons)
+  
+- Background Snippets
+
+  - [Collection of modern, background snippets](https://bg.ibelick.com/)
 
 [⏪(Back to top)](#table-of-contents)
 
