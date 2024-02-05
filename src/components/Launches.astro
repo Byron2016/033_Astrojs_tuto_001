@@ -1,5 +1,6 @@
 ---
-import CardLaunch from "./CardLaunch.astro"
+// import CardLaunch from "./CardLaunch.astro"
+import NewCardLaunch from "./NewCardLaunch.astro"
 import {getLatestLaunches} from '../services/spacex'
 
 const launches = await getLatestLaunches()
@@ -11,7 +12,7 @@ const launches = await getLatestLaunches()
   {
     launches.map(({id, links, details, flight_number: flightNumber, success}) => 
     
-      <CardLaunch 
+      <NewCardLaunch 
         id={id}
         img={links.patch.small}
         details={details}
