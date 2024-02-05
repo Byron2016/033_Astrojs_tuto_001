@@ -17,6 +17,8 @@ const { title } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Raleway:wght@400;700&display=swap"
+    rel="stylesheet">
 		<title>{title}</title>
 		<ViewTransitions/>
 	</head>
@@ -27,6 +29,7 @@ const { title } = Astro.props;
 				<slot />
 			</main>
 		</div>
+		<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
 	</body>
 </html>
 <style is:global>

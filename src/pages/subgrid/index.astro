@@ -1,0 +1,18 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SubgridTest from '../../components/subgrid/SubgridTest.astro';
+import SubgridTailwindTest from '../../components/subgrid/SubgridTailwindTest.astro';
+
+const tipo = !true
+---
+
+<Layout title="Welcome to Astro.">
+	<main class="bg-red-900 rounded">
+    {
+      tipo ? <SubgridTest /> : <SubgridTailwindTest />
+    }
+		
+	</main>
+</Layout>
+
+

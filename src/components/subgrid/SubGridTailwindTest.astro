@@ -1,0 +1,108 @@
+---
+interface textosSubgrid_type {
+  title: string
+  content: string
+  socialMedia: {
+    comments: number
+    likes: number 
+    retwet: number
+  } 
+  
+}
+
+const textos_Subgrid:textosSubgrid_type[]  = [
+  {
+    title: "01 Aenean magna neque, aliquam vel pretium at",
+    content: "01 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id faucibus libero. Duis faucibus, lacus eget tempus posuere, urna arcu mollis arcu, non semper turpis lacus elementum odio.",
+    socialMedia : {
+      comments: 100,
+      likes: 100,
+      retwet: 100,
+    }
+  },
+  {
+    title: "02 Duis eget ligula consequat, faucibus nunc vitae, elementum tellus.",
+    content: "02 Sed bibendum justo non sapien mollis, eu maximus erat sodales. Proin ornare turpis metus, et porta diam rhoncus et. Morbi tempor risus quis nisl elementum, non luctus arcu vulputate. Donec et metus nisi.<br /><br /> Vestibulum suscipit nulla at lorem consequat, in volutpat purus porttitor. Donec ac massa sed neque  condimentum sollicitudin.",
+    socialMedia : {
+      comments: 100000,
+      likes: 1123456,
+      retwet: 801254,
+    }
+  },
+  {
+    title: "03 Duis eget ligula consequat, faucibus nunc vitae, elementum tellus.",
+    content: "03 Sed bibendum justo non sapien mollis, eu maximus erat sodales. Proin ornare turpis metus, et porta diam rhoncus et. Morbi tempor risus quis nisl elementum, non luctus arcu vulputate. Donec et metus nisi.",
+    socialMedia : {
+      comments: 100000,
+      likes: 1123456,
+      retwet: 801254,
+    }
+  },
+  {
+    title: "04 Aenean magna neque, aliquam vel pretium at",
+    content: "04 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id faucibus libero. Duis faucibus, lacus eget tempus posuere, urna arcu mollis arcu, non semper turpis lacus elementum odio. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id faucibus libero. Duis faucibus, lacus eget tempus posuere, urna arcu mollis arcu, non semper turpis lacus elementum odio. ",
+    socialMedia : {
+      comments: 100,
+      likes: 100,
+      retwet: 100,
+    }
+  },
+]
+
+---
+<!-- contenedor -->
+<div class="max-w-[1000px] m-auto w-[90%]">
+  <!-- publicaciones -->
+  <main class="grid grid-cols-2 gap-5 publicaciones">
+    {
+      textos_Subgrid.map((texto_Subgrid:textosSubgrid_type) => (
+        <!-- pubicacion -->
+        <div class="p-5 bg-[#c4f3b1] shadow-[0_4px_20px_rgba(194,194,194,0.25)] rounded grid grid-rows-[1fr_1fr] publicacion">
+          <!-- titulo -->
+          <h2 class="m-0 text-3xl text-[#C00000] font-bold leading-tight gridColSpan3">{texto_Subgrid.title}</h2>
+          <!-- texto -->
+          <p class="text-[#1E1E1E] leading-7 gridColSpan3">{texto_Subgrid.content} </p>
+          <!-- botones -->
+          <div class="mr-5  p-0 cursor-pointer text-left enBotones">
+            <!-- comentario -->
+            <button role="button" class="text-left"><i class="fas fa-comment text-[#00C2FF]"></i> {texto_Subgrid.socialMedia.comments}</button>
+            <!-- favoritos -->
+            <button role="button" class="text-left"><i class="fas fa-heart text-[#FF0000]"></i> {texto_Subgrid.socialMedia.likes}</button>
+            <!-- retweets -->
+            <button role="button" class="text-left"><i class="fas fa-retweet text-[#40C800]"></i> {texto_Subgrid.socialMedia.retwet}</button>
+          </div>
+        </div>
+      ))
+    }
+  </main>
+</div>
+
+
+
+
+<style>
+  .publicaciones{
+    grid-template-rows: repeat(1, auto 1fr auto); 
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .publicacion{
+    grid-row: span 3;
+    grid-template-rows: 1, auto 1fr auto; 
+    grid-template-rows: subgrid;
+    
+    grid-column: span 3;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: subgrid;
+  }
+
+  .enBotones{
+    display: grid;
+    grid-column: span 3;
+    grid-template-columns: subgrid;
+  }
+
+  .gridColSpan3{
+    grid-column: span 3;
+  }
+</style>
